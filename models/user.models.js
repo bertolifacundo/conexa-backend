@@ -10,9 +10,6 @@ const UserSchema = Schema({
     required: [true, 'El apellido es obligatorio'],
   },
   email: {
-    // type: String,
-    // required: [true, 'El correo es obligatorio'],
-    // unique: true,
     type: String,
     required: [true, 'El correo es obligatorio'],
     index: true,
@@ -34,10 +31,6 @@ const UserSchema = Schema({
   enabled: {
     type: Boolean,
     default: true,
-  },
-  google: {
-    type: Boolean,
-    default: false,
   },
 });
 
