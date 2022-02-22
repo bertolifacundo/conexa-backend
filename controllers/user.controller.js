@@ -20,18 +20,21 @@ const getUsers = async (req = request, res = response) => {
 };
 
 const postUser = async (req, res = response) => {
-  const { firstName, lastName, email, password, rol } = req.body;
-  const user = new UserModel({ firstName, lastName, email, password, rol });
-  const salt = bcryptjs.genSaltSync();
-  user.password = bcryptjs.hashSync(password, salt);
-
-  await user.save();
-  logger.info(`El usuario con correo ${email} fue creado correctamente`);
-
-  res.json({
-    msg: 'post API - postUser',
-    user,
-  });
+  try {
+    const { firstName, lastName, email, password, rol } = req.body;
+    const user = new UserModel({ firstName, lastName, email, password, rol });
+    const salt = bcryptjs.genSaltSync();
+    user.password = bcryptjs.hashSync(password, salt);
+    await user.save();
+    logger.info(`El usuario con correo ${email} fue creado correctamente`);
+    res.json({
+      msg: 'post API - postUser',
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+    logger.error(`El usuario ${email} no pudo ser creado`);
+  }
 };
 
 const putUser = async (req, res = response) => {
