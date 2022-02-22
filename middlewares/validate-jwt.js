@@ -15,7 +15,6 @@ const validateJWT = async (req = request, res = response, next) => {
   try {
     const { _id } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
 
-    // leer el usuario que corresponde al id
     const user = await UserModel.findById(_id);
 
     if (!user) {
@@ -24,7 +23,6 @@ const validateJWT = async (req = request, res = response, next) => {
       });
     }
 
-    // Verificar si el uid tiene estado true
     if (!user.enabled) {
       return res.status(401).json({
         msg: 'Token no válido - usuario con estado: false',
@@ -38,16 +36,6 @@ const validateJWT = async (req = request, res = response, next) => {
     res.status(401).json({
       msg: 'Token no válido',
     });
-  }
-};
-
-const checkToken = (req, res) => {
-  var isExpiredToken = false;
-
-  var dateNow = new Date();
-
-  if (jwt.decode().exp < dateNow.getTime() / 1000) {
-    isExpiredToken = true;
   }
 };
 
