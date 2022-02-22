@@ -1,7 +1,8 @@
 const bcryptjs = require('bcryptjs');
 const { response } = require('express');
 const UserModel = require('../models/user.models');
-
+const axios = require('axios');
+const { paginate } = require('../helpers/validators');
 const getUsers = async (req = request, res = response) => {
   const { limit = 5, from = 0 } = req.query;
   const query = { estado: true };
@@ -51,10 +52,29 @@ const patchUser = (req, res = response) => {
   res.send('PATCH request to the homepage - controller');
 };
 
+const getPosts = async (req = request, res = response) => {
+  try {
+    const { perPage, page } = req.query;
+    const { data } = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts'
+    );
+    posts = [];
+    posts = data;
+    totalPosts = posts.length;
+    result = await paginate(posts, page, perPage);
+    res.json({
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getUsers,
   postUser,
   putUser,
   deleteUser,
   patchUser,
+  getPosts,
 };

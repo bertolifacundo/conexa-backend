@@ -13,6 +13,7 @@ const {
   putUser,
   deleteUser,
   patchUser,
+  getPosts,
 } = require('../controllers/user.controller');
 const { validateJWT } = require('../middlewares/validate-jwt');
 
@@ -49,5 +50,6 @@ router.put(
 );
 router.delete('/user/:id', deleteUser);
 router.patch('/user/:id', patchUser);
+router.get('/posts', getPosts);
 
 module.exports = router;
