@@ -6,7 +6,6 @@ const {
   validateEmail,
   existUserById,
 } = require('../helpers/validators');
-
 const {
   getUsers,
   postUser,
@@ -15,13 +14,13 @@ const {
   patchUser,
 } = require('../controllers/user.controller');
 const { validateJWT } = require('../middlewares/validate-jwt');
-
 const router = Router();
 
 router.get('/', getUsers);
 router.post(
   '/',
   [
+    validateJWT,
     check('firstName', 'Debe ingresar su nombre').not().isEmpty(),
     check('lastName', 'Debe ingresar su apellido').not().isEmpty(),
     check(
