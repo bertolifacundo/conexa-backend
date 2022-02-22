@@ -38,15 +38,24 @@ const postUser = async (req, res = response) => {
 };
 
 const putUser = async (req, res = response) => {
-  const { id } = req.params;
-  const { _id, password, email, ...userUpdate } = req.body;
-  if (password) {
-    // Encriptar la contraseña
-    const salt = bcryptjs.genSaltSync();
-    userUpdate.password = bcryptjs.hashSync(password, salt);
+  try {
+    const { id } = req.params;
+    const { _id, password, email, ...userUpdate } = req.body;
+    if (password) {
+      // Encriptar la contraseña
+      const salt = bcryptjs.genSaltSync();
+      userUpdate.password = bcryptjs.hashSync(password, salt);
+    }
+    const user = await UserModel.findByIdAndUpdate(id, userUpdate, {
+      new: true,
+    });
+    logger.info(`El usuario con correo ${email} fue actualizado correctamente`);
+
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+    logger.error(`El usuario ${email} no pudo ser actualizado`);
   }
-  const user = await UserModel.findByIdAndUpdate(id, userUpdate, { new: true });
-  res.json(user);
 };
 
 const deleteUser = function (req, res = response) {
