@@ -3,7 +3,7 @@ const { response } = require('express');
 const UserModel = require('../models/user.models');
 const axios = require('axios');
 const { paginate } = require('../helpers/validators');
-
+const logger = require('../helpers/logger');
 const getUsers = async (req = request, res = response) => {
   const { limit = 5, from = 0 } = req.query;
   const query = { estado: true };
@@ -26,6 +26,8 @@ const postUser = async (req, res = response) => {
   user.password = bcryptjs.hashSync(password, salt);
 
   await user.save();
+  logger.info(`El usuario con correo ${email} fue creado correctamente`);
+
   res.json({
     msg: 'post API - postUser',
     user,
@@ -34,7 +36,7 @@ const postUser = async (req, res = response) => {
 
 const putUser = async (req, res = response) => {
   const { id } = req.params;
-  const { _id, password, google, email, ...userUpdate } = req.body;
+  const { _id, password, email, ...userUpdate } = req.body;
   if (password) {
     // Encriptar la contraseña
     const salt = bcryptjs.genSaltSync();
