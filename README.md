@@ -1,7 +1,7 @@
 # conexa-backend
 Backend conexa\
-Api info:\
----
+Api info:
+--
 USER\
   GET: https://backend-conexa.herokuapp.com/api/users \
   POST: https://backend-conexa.herokuapp.com/api/users \
