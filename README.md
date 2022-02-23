@@ -16,4 +16,4 @@ POSTS\
   GET: https://backend-conexa.herokuapp.com/api/posts \
     descripcion: por parametro se puede pasar los registros por pagina y el numero de pagina. Ejemplo: \
     https://backend-conexa.herokuapp.com/api/posts?perPage=1&page=20 \
-  
+---  
