@@ -16,6 +16,57 @@ const { validateJWT } = require('../middlewares/validate-jwt');
 const router = Router();
 
 router.get('/', getUsers);
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    User:
+ *      type: object
+ *      properties:
+ *        firstNanme:
+ *          type: string
+ *          description: Primer nombre del usuario
+ *        lastName:
+ *          type: string
+ *          description: Apellido del usuario
+ *        mail:
+ *          type: string
+ *          description: Correo de contacto del usuario
+ *        rol:
+ *          type: string
+ *          description: Roles permitidos ADMIN_ROLE , USER_ROLE
+ *        enabled:
+ *          type: boolean
+ *          description: Estado del usuario, habilitado o deshabilitado
+ *      required:
+ *        - firstName
+ *        - lastName
+ *        - rol
+ *      example:
+ *         "firstName": "Facundo"
+ *         "lastName": "Bértoli"
+ *         "email": "bertolifacundo@gmail.com"
+ *         "rol": "USER_ROLE"
+ */
+
+/**
+ * @swagger
+ * /api/users:
+ *  post:
+ *    summary: creacion de un usuarios
+ *    tags: [User]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/User'
+ *    responses:
+ *      200:
+ *        description: El nuevo usuario fue creado
+ */
 router.post(
   '/',
   [
