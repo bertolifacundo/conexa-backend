@@ -55,8 +55,13 @@ const deleteUser = async (id) => {
       { enabled: false },
       { new: true }
     );
-    logger.info(`El usuario ha sido eliminado`);
-    return userDelete;
+    if (!userDelete) {
+      logger.info(`Usuario ${id} no encontrado`);
+      throw new Error(`Usuario ${id} no encontrado`);
+    } else {
+      logger.info(`El  usuario ${id} ha sido eliminado`);
+      return userDelete;
+    }
   } catch (error) {
     logger.error(`El usuario no pudo ser eliminado`);
     throw Error(error);

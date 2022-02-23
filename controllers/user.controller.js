@@ -1,15 +1,21 @@
 const { response } = require('express');
 const UserService = require('../services/user.services');
 const logger = require('../helpers/logger');
+const { paginate } = require('../helpers/paginate');
 
 const getUsers = async (req = request, res = response) => {
   try {
-    const { limit = 5, from = 0 } = req.query;
-    const usersList = await UserService.getUsers(limit, from);
+    const { perPage, page } = req.query;
+    const usersList = await UserService.getUsers();
+    users = [];
+    users = usersList;
+    totalUsers = users.length;
+    result = await paginate(users, page, perPage);
+
     return res.status(200).json({
       status: 200,
       message: 'Lista de usuarios',
-      usersList,
+      result,
     });
   } catch (e) {
     return res.status(404).json({ status: 404, message: e.message });

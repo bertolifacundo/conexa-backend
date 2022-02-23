@@ -1,10 +1,10 @@
 const { response } = require('express');
-const PostServices = require('../services/posts.services');
+const PhotosServices = require('../services/photos.services');
 
-const getPosts = async (req = request, res = response) => {
+const getPhotos = async (req = request, res = response) => {
   try {
     const { perPage, page } = req.query;
-    result = await PostServices.getPosts(page, perPage);
+    result = await PhotosServices.getPhotos(page, perPage);
     res.json({
       result,
     });
@@ -14,5 +14,5 @@ const getPosts = async (req = request, res = response) => {
 };
 
 module.exports = {
-  getPosts,
+  getPhotos,
 };
