@@ -24,3 +24,6 @@ info: Feb-22-2022 20:08:57: 	El usuario con correo Test17@gmail.com fue actualiz
 info: Feb-22-2022 20:17:09: 	El usuario con correo test2ssssssaaaaasdasddssaassss0@gmail.com fue creado correctamente
 info: Feb-22-2022 20:17:29: 	El usuario con correo Test17@gmail.com fue actualizado correctamente
 error: Feb-22-2022 20:17:36: 	El usuario no pudo ser actualizado
+error: Feb-22-2022 21:43:12: 	El usuario no pudo ser eliminado
+info: Feb-22-2022 21:43:39: 	El usuario ha sido eliminado
+info: Feb-22-2022 21:46:36: 	El usuario ha sido eliminado

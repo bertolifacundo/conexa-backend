@@ -48,8 +48,24 @@ const putUser = async (id, userUpdate) => {
   }
 };
 
+const deleteUser = async (id) => {
+  try {
+    const userDelete = await UserModel.findByIdAndUpdate(
+      id,
+      { enabled: false },
+      { new: true }
+    );
+    logger.info(`El usuario ha sido eliminado`);
+    return userDelete;
+  } catch (error) {
+    logger.error(`El usuario no pudo ser eliminado`);
+    throw Error(error);
+  }
+};
+
 module.exports = {
   getUsers,
   postUser,
   putUser,
+  deleteUser,
 };
