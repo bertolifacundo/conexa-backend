@@ -9,6 +9,7 @@ class Server {
     this.userRoutes = '/api/users';
     this.postsRoutes = '/api/posts';
     this.authPath = '/api/auth';
+    this.photosRoutes = '/api/photos';
     this.upConection();
     this.middlewares();
     this.routes();
@@ -28,6 +29,7 @@ class Server {
     this.app.use(this.authPath, require('../routes/auth.routes'));
     this.app.use(this.userRoutes, require('../routes/user.routes'));
     this.app.use(this.postsRoutes, require('../routes/posts.routes'));
+    this.app.use(this.photosRoutes, require('../routes/photos.routes'));
   }
 
   listen() {
