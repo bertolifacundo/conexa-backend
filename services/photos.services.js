@@ -1,3 +1,4 @@
+const logger = require('../helpers/logger');
 const axios = require('axios');
 const { paginate } = require('../helpers/paginate');
 
