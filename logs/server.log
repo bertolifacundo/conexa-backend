@@ -2,3 +2,25 @@ info: Feb-22-2022 08:29:41: 	Server Sent A Hello World!
 info: Feb-22-2022 08:30:43: 	El usuario con correo test2saa0@gmail.com fue creado correctamente
 info: Feb-22-2022 08:36:12: 	El usuario con correo test2saaa0@gmail.com fue creado correctamente
 info: Feb-22-2022 08:40:16: 	El usuario con correo Test17@gmail.com fue actualizado correctamente
+info: Feb-22-2022 19:31:48: 	El usuario con correo test2saaas0@gmail.com fue creado correctamente
+error: Feb-22-2022 19:31:48: 	El usuario test2saaas0@gmail.com no pudo ser creado
+info: Feb-22-2022 19:33:05: 	El usuario con correo test2saaads0@gmail.com fue creado correctamente
+error: Feb-22-2022 19:33:05: 	El usuario test2saaads0@gmail.com no pudo ser creado
+info: Feb-22-2022 19:34:21: 	El usuario con correo test2saaadssssss0@gmail.com fue creado correctamente
+error: Feb-22-2022 19:34:21: 	El usuario test2saaadssssss0@gmail.com no pudo ser creado
+error: Feb-22-2022 19:34:21: 	El usuario undefined no pudo ser creado
+info: Feb-22-2022 19:35:02: 	El usuario con correo test2ssssssaaadssssss0@gmail.com fue creado correctamente
+error: Feb-22-2022 19:35:02: 	El usuario test2ssssssaaadssssss0@gmail.com no pudo ser creado
+error: Feb-22-2022 19:35:02: 	El usuario undefined no pudo ser creado
+info: Feb-22-2022 19:36:30: 	El usuario con correo test2ssssssaaaasdasddssssss0@gmail.com fue creado correctamente
+info: Feb-22-2022 19:37:40: 	El usuario con correo test2ssssssaaaaasdasddssssss0@gmail.com fue creado correctamente
+error: Feb-22-2022 20:02:23: 	El usuario no pudo ser actualizado
+error: Feb-22-2022 20:03:39: 	El usuario no pudo ser actualizado
+error: Feb-22-2022 20:05:31: 	El usuario no pudo ser actualizado
+error: Feb-22-2022 20:05:52: 	El usuario no pudo ser actualizado
+info: Feb-22-2022 20:06:37: 	El usuario con correo undefined fue actualizado correctamente
+info: Feb-22-2022 20:08:02: 	El usuario con correo Test17@gmail.com fue actualizado correctamente
+info: Feb-22-2022 20:08:57: 	El usuario con correo Test17@gmail.com fue actualizado correctamente
+info: Feb-22-2022 20:17:09: 	El usuario con correo test2ssssssaaaaasdasddssaassss0@gmail.com fue creado correctamente
+info: Feb-22-2022 20:17:29: 	El usuario con correo Test17@gmail.com fue actualizado correctamente
+error: Feb-22-2022 20:17:36: 	El usuario no pudo ser actualizado

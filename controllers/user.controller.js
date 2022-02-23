@@ -1,60 +1,47 @@
-const bcryptjs = require('bcryptjs');
 const { response } = require('express');
-const UserModel = require('../models/user.models');
-const axios = require('axios');
-const { paginate } = require('../helpers/validators');
+const UserService = require('../services/user.services');
 const logger = require('../helpers/logger');
+
 const getUsers = async (req = request, res = response) => {
-  const { limit = 5, from = 0 } = req.query;
-  const query = { estado: true };
-
-  const [total, users] = await Promise.all([
-    UserModel.countDocuments(query),
-    UserModel.find(query).skip(Number(from)).limit(Number(limit)),
-  ]);
-
-  res.json({
-    total,
-    users,
-  });
+  try {
+    const { limit = 5, from = 0 } = req.query;
+    const usersList = await UserService.getUsers(limit, from);
+    return res.status(200).json({
+      status: 200,
+      message: 'Lista de usuarios',
+      usersList,
+    });
+  } catch (e) {
+    return res.status(404).json({ status: 404, message: e.message });
+  }
 };
 
 const postUser = async (req, res = response) => {
   try {
     const { firstName, lastName, email, password, rol } = req.body;
-    const user = new UserModel({ firstName, lastName, email, password, rol });
-    const salt = bcryptjs.genSaltSync();
-    user.password = bcryptjs.hashSync(password, salt);
-    await user.save();
-    logger.info(`El usuario con correo ${email} fue creado correctamente`);
-    res.json({
-      msg: 'post API - postUser',
-      user,
+    await UserService.postUser(firstName, lastName, email, password, rol);
+    return res.status(201).json({
+      status: 201,
+      message: 'Usuario creado satisfactoriamente',
     });
-  } catch (error) {
-    console.log(error);
-    logger.error(`El usuario ${email} no pudo ser creado`);
+  } catch (e) {
+    logger.error(`El usuario no pudo ser creado`);
+    return res.status(404).json({ status: 404, message: e.message });
   }
 };
 
 const putUser = async (req, res = response) => {
   try {
     const { id } = req.params;
-    const { _id, password, email, ...userUpdate } = req.body;
-    if (password) {
-      // Encriptar la contraseña
-      const salt = bcryptjs.genSaltSync();
-      userUpdate.password = bcryptjs.hashSync(password, salt);
-    }
-    const user = await UserModel.findByIdAndUpdate(id, userUpdate, {
-      new: true,
+    const { _id, ...user } = req.body;
+    const userUpdate = await UserService.putUser(id, user);
+    return res.status(200).json({
+      status: 200,
+      message: 'Usuario actualizado',
+      userUpdate,
     });
-    logger.info(`El usuario con correo ${email} fue actualizado correctamente`);
-
-    res.json(user);
-  } catch (error) {
-    console.log(error);
-    logger.error(`El usuario ${email} no pudo ser actualizado`);
+  } catch (e) {
+    return res.status(500).json({ status: 500, message: e.message });
   }
 };
 
