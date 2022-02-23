@@ -11,7 +11,6 @@ const {
   postUser,
   putUser,
   deleteUser,
-  patchUser,
 } = require('../controllers/user.controller');
 const { validateJWT } = require('../middlewares/validate-jwt');
 const router = Router();
@@ -46,7 +45,6 @@ router.put(
   ],
   putUser
 );
-router.delete('/user/:id', deleteUser);
-router.patch('/user/:id', patchUser);
+router.delete('/:id', deleteUser);
 
 module.exports = router;

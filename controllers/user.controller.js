@@ -45,13 +45,16 @@ const putUser = async (req, res = response) => {
   }
 };
 
-const deleteUser = function (req, res = response) {
-  const { id } = req.params;
-  res.send(`Delete record with id ${id}`);
-};
-
-const patchUser = (req, res = response) => {
-  res.send('PATCH request to the homepage - controller');
+const deleteUser = async (req, res = response) => {
+  try {
+    const { id } = req.params;
+    const userDelete = await UserService.deleteUser(id);
+    res
+      .status(200)
+      .json({ status: 200, message: 'Usuario eliminado', userDelete });
+  } catch (e) {
+    return res.status(500).json({ status: 500, message: e.message });
+  }
 };
 
 module.exports = {
@@ -59,5 +62,4 @@ module.exports = {
   postUser,
   putUser,
   deleteUser,
-  patchUser,
 };
