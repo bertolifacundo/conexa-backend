@@ -15,7 +15,7 @@ _Que necesitamos:_
 
 ```
 1. Nodejs v14.15.5: https://nodejs.org/download/release/v14.15.5/
-2. Descarga del proyecto desde github: https://github.com/bertolifacundo/conexa-backend.git
+2. Descarga del proyecto desde github: https://github.com/bertolifacundo/conexa-backend/releases/tag/V2.0
 ```
 
 ### Instalación 🔧
@@ -50,6 +50,11 @@ _..._
 _Luego:_
 ```
 nodemon app
+```
+_por último ir al navegador, colocar la url y dar enter_
+
+```
+http://localhost:8081/
 ```
 
 ## Construido con 🛠️
