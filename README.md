@@ -13,10 +13,9 @@ _Instrucciones para descarga del proyecto e instalacion de las dependencias_
 
 _Que necesitamos:_
 
-```
 1. Nodejs v14.15.5: https://nodejs.org/download/release/v14.15.5/
 2. Descarga del proyecto desde github: https://github.com/bertolifacundo/conexa-backend/releases/tag/V2.0
-```
+
 
 ### Instalación 🔧
 
