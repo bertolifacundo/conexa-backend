@@ -3,8 +3,8 @@ const PhotosServices = require('../services/photos.services');
 
 const getPhotos = async (req = request, res = response) => {
   try {
-    const { perPage, page } = req.query;
-    result = await PhotosServices.getPhotos(page, perPage);
+    const { perPage, _page } = req.query;
+    result = await PhotosServices.getPhotos(_page, perPage);
     res.json({
       result,
     });
