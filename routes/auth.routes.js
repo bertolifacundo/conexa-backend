@@ -23,8 +23,8 @@ const router = Router();
  *        - email
  *        - password
  *      example:
- *         "email": "admin@admin.com"
- *         "password": "123465"
+ *         "email": "useradmin@gmail.com"
+ *         "password": "041086"
  */
 
 /**
