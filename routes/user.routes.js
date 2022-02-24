@@ -23,7 +23,7 @@ const router = Router();
  *    tags: [Users]
  *    parameters:
  *      - in: query
- *        name: page
+ *        name: _page
  *        schema:
  *          type: integer
  *        required: false
