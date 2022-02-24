@@ -15,6 +15,12 @@ const router = Router();
  *          type: integer
  *        required: false
  *        description: Parametro correspondiente al numero de pagina
+ *      - in: query
+ *        name: _limit
+ *        schema:
+ *          type: integer
+ *        required: false
+ *        description: Parametro correspondiente al numero de registros por pagina
  *    responses:
  *      200:
  *        description: Lista cargada correctamente
@@ -22,3 +28,4 @@ const router = Router();
 router.get('/', getPosts);
 
 module.exports = router;
+
