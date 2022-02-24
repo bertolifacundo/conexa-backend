@@ -8,8 +8,8 @@ const paginate = async (items, page = 1, perPage = 10) => {
   const totalPages = Math.ceil(items.length / perPage);
   const paginatedItems = items.slice(offset, perPage * page);
   return {
-    previousPage: page - 1 ? page - 1 : null,
-    nextPage: totalPages > page ? page + 1 : null,
+    previousPage: Number(page) - 1 ? Number(page) - 1 : null,
+    nextPage: totalPages > Number(page) ? Number(page) + 1 : null,
     total: items.length,
     totalPages: totalPages,
     items: paginatedItems,

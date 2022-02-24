@@ -70,3 +70,6 @@ info: Feb-23-2022 16:56:18: 	El usuario con correo useradmin@gmail.com fue cread
 error: Feb-23-2022 20:21:50: 	Problemas en la peticion
 info: Feb-23-2022 20:26:31: 	El usuario con correo bertolifacundo@gmail.com fue actualizado correctamente
 info: Feb-23-2022 20:26:39: 	El usuario con correo bertolifacundo@gmail.com fue actualizado correctamente
+info: Feb-24-2022 01:15:53: 	El usuario con correo test@gmail.com fue creado correctamente
+error: Feb-24-2022 01:38:24: 	El usuario no pudo ser actualizado
+info: Feb-24-2022 01:38:49: 	El usuario con correo test@gmail.com fue actualizado correctamente

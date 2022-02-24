@@ -1,7 +1,6 @@
 const path = require('path');
-
 const swaggerConfig = {
-  definition: {
+  swaggerDefinition: {
     openapi: '3.0.3',
     info: {
       title: 'API Conexa',
@@ -12,7 +11,31 @@ const swaggerConfig = {
         url: 'https://www.linkedin.com/in/facundo-bertoli-2197b344/',
       },
     },
-    servers: [{ url: 'http://localhost:8081/', description: 'Server' }],
+    servers: [
+      {
+        url: `http://localhost:${process.env.PORTLOCAL}/`,
+        description: 'Server localhost',
+      },
+      {
+        url: 'https://backend-conexa.herokuapp.com/',
+        description: 'Server Heroku',
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'apiKey',
+          name: 'x-token',
+          scheme: 'bearer',
+          in: 'header',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
   apis: [`${path.join(__dirname, '../routes/*.js')}`],
 };
