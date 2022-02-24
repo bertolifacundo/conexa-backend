@@ -1,15 +1,11 @@
 const logger = require('../helpers/logger');
 const axios = require('axios');
-const { paginate } = require('../helpers/paginate');
 
-const getPhotos = async (page, perPage) => {
+const getPhotos = async (page) => {
   try {
-    const { data } = await axios.get(process.env.URL_POSTS);
-    photos = [];
-    photos = data;
-    totalPhotos = photos.length;
-    result = await paginate(photos, page, perPage);
-    return result;
+    const url = process.env.URL_PHOTOS;
+    const { data } = await axios.get(`${url}/api/photos?_page=${page}`);
+    return data;
   } catch (error) {
     logger.error(`Problemas en la peticion`);
     throw Error(error);
