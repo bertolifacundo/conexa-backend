@@ -2,7 +2,8 @@
 
 _Proyecto backend: Login el cual debe consumir un servicio de login que debe ser creado en el proyecto  de Back.
 Listar [post], el cual debe consumir a la API : https://jsonplaceholder.typicode.com/posts y mostrarlo en una lista o tabla.
-Listar [photos], el cual debe consumir a la API : https://jsonplaceholder.typicode.com/photos, esta lista debe tener paginación de 10 en 10, haciendo uso de limit and offset._
+Listar [photos], el cual debe consumir a la API : https://jsonplaceholder.typicode.com/photos, esta lista debe tener paginación de 10 en 10, haciendo uso de limit and offset.
+Para dirigirse a la documentacion de la API y al repositorio mismo , ingrese aca: https://backend-conexa.herokuapp.com/_
 
 ## Comenzando 🚀
 
