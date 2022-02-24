@@ -3,8 +3,8 @@ const PostServices = require('../services/posts.services');
 
 const getPosts = async (req = request, res = response) => {
   try {
-    const { perPage, page } = req.query;
-    result = await PostServices.getPosts(page, perPage);
+    const { perPage, _page } = req.query;
+    result = await PostServices.getPosts(_page, perPage);
     res.json({
       result,
     });
