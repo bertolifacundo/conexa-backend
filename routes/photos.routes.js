@@ -10,12 +10,6 @@ const router = Router();
  *    tags: [Photos]
  *    parameters:
  *      - in: query
- *        name: perPage
- *        schema:
- *          type: integer
- *        required: false
- *        description: Parametro correpondiente a la cantidad de registros por pagina
- *      - in: query
  *        name: page
  *        schema:
  *          type: integer
