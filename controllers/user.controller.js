@@ -5,13 +5,8 @@ const { paginate } = require('../helpers/paginate');
 
 const getUsers = async (req = request, res = response) => {
   try {
-    const { perPage, page } = req.query;
-    const usersList = await UserService.getUsers();
-    users = [];
-    users = usersList;
-    totalUsers = users.length;
-    result = await paginate(users, page, perPage);
-
+    const { _page } = req.query;
+    const result = await UserService.getUsers(_page);
     return res.status(200).json({
       status: 200,
       message: 'Lista de usuarios',

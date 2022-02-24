@@ -2,14 +2,16 @@ const UserModel = require('../models/user.models');
 const bcryptjs = require('bcryptjs');
 const logger = require('../helpers/logger');
 
-const getUsers = async (limit, from) => {
+const getUsers = async (page) => {
   try {
+    if (Number(page) === 0) {
+      page = 1;
+    }
     const query = { enabled: true };
-    const [total, users] = await Promise.all([
-      UserModel.countDocuments(query),
-      UserModel.find(query).skip(Number(from)).limit(Number(limit)),
-    ]);
-    return total, users;
+    const users = await UserModel.find(query)
+      .limit(10)
+      .skip((Number(page) - 1) * 10);
+    return users;
   } catch (error) {
     throw Error(error);
   }
