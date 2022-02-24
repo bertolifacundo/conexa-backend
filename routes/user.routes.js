@@ -108,7 +108,6 @@ router.post(
     ).isLength(6),
     check('email', 'Correo no valido').isEmail(),
     check('email').custom(validateEmail),
-    // check('rol', 'No es un rol valido').isIn(['ADMIN_ROLE', 'USER_ROLE']),
     check('rol').custom(validateUserRol),
     validateFields,
   ],
