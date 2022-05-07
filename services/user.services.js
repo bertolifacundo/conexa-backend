@@ -40,7 +40,7 @@ const putUser = async (id, userUpdate) => {
       new: true,
     });
     logger.info(
-      `El usuario con correo ${userUpdate.email} fue actualizado correctamente`
+      `El usuario con correo ${userUpdate.email} fue actualizado correctamente`,
     );
 
     return user;
@@ -55,7 +55,7 @@ const deleteUser = async (id) => {
     const userDelete = await UserModel.findByIdAndUpdate(
       id,
       { enabled: false },
-      { new: true }
+      { new: true },
     );
     if (!userDelete) {
       logger.info(`Usuario ${id} no encontrado`);

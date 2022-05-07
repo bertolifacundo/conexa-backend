@@ -6,7 +6,7 @@ const router = Router();
  * @swagger
  * /api/posts:
  *  get:
- *    summary: Obtener lista de posts de la api https://jsonplaceholder.typicode.com/posts. Por defecto trae los primeros 10
+ *    summary: Obtener lista de posts de la api https://jsonplaceholder.typicode.com/posts.
  *    tags: [Posts]
  *    parameters:
  *      - in: query
@@ -28,4 +28,3 @@ const router = Router();
 router.get('/', getPosts);
 
 module.exports = router;
-

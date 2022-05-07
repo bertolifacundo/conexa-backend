@@ -6,7 +6,7 @@ const router = Router();
  * @swagger
  * /api/photos:
  *  get:
- *    summary: Obtener lista de photos de la api https://jsonplaceholder.typicode.com/photos. Por defecto trae los primeros 10
+ *    summary: Obtener lista de photos de la api https://jsonplaceholder.typicode.com/photos.
  *    tags: [Photos]
  *    parameters:
  *      - in: query
